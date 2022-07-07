@@ -1,25 +1,35 @@
-# Getting Started
+# Final project
 
-### Reference Documentation
+Необходимо реализовать Web-приложения для управления личными коллекциями
+(книги, марки, виски, и т.д. — в тексте ниже это называется айтемы).
+Не аутентифицированные пользователи имеют доступ только в режиме чтения
+(они могут использовать поиск, но не могут создавать коллекции и айтемы,
+не могут оставлять комментарии и лайки).
+Аутентифицированные пользователи не-админы имеют доступ ко всему, за
+исключением админки.
+Админка позволяет управлять пользователя — просматривать, блокировать,
+разблокировать, удалять, добавлять в админы, удалять из админов (АДМИН
+МОЖЕТ ЗАБРАТЬ У СЕБЯ ПРАВА АДМИНА, это важно).
+Админ видит все страницы как их автор (например, админ может открыть
+коллекцию другого пользователя и добавить в нее айтемы; по сути, админ
+является владельцем всех коллекций и всех айтемов). Только админ или
+создатель коллекции или айтемов может ими манипулировать (редактировать,
+добавлять, удалять). Все доступно для просмотра всем (кроме админка).
 
-For further reference, please consider the following sections:
-
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.1/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.1/maven-plugin/reference/html/#build-image)
-* [Spring Security](https://docs.spring.io/spring-boot/docs/2.7.1/reference/htmlsingle/#web.security)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.1/reference/htmlsingle/#web)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.7.1/reference/htmlsingle/#data.sql.jpa-and-spring-data)
-
-### Guides
-
-The following guides illustrate how to use some features concretely:
-
-* [Securing a Web Application](https://spring.io/guides/gs/securing-web/)
-* [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/)
-* [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-
+Пользователи могут зарегистрироваться и аутентифицироваться через сайт.
+Каждая страниц (в хидере сверху) предоставляет доступ по полнотектстовому
+поиску. Результаты — всегда айтемы (т.е. если текст найден в комментарии,
+вы показываете ссылку на айтем с комментариями, а не отдельный комментарий).
+Если результат коллекция, вы можете или показать любой айтем или же
+сгенерировать ссылку на коллекцию. У каждого юзера есть личная страница,
+на которой он управляет своими коллекциями (создает, удаляет, редактирует)
+— каждая коллекция в списке это ссылка на страницу коллекции, которая
+содержит таблицу айтемов с сортировками и фильтрами и возможностью 
+создать новый айтем, удалить или отредактировать существующий.
+Каждая коллекция имеет название, описание (с поддержкой форматировать
+markdown), тему (одно значение из фиксированного справочника, например,
+“Books”, “Signs”, “Silverware”), опционального изображения (загружается
+пользователем в облако).
+Дополнительно коллеуия позволяет указать поля, которые будут у каждого
+айтема. Плюс у айтемов есть фиксированные поля (id, название, тэги). На
+уровне коллекции для айтемов можно выбрать любой набор из следующих 
